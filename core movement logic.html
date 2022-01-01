@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.2.4.1 (Windows)"/>
+	<meta name="created" content="2021-12-31T12:38:25.201000000"/>
+	<meta name="changed" content="2021-12-31T16:14:56.569000000"/>
+	<style type="text/css">
+		@page { size: 8.5in 11in; margin: 0.79in }
+		p { line-height: 115%; margin-bottom: 0.1in; background: transparent }
+		dd { margin-left: 0.39in; background: transparent }
+		dt { background: transparent }
+		h4 { margin-top: 0.08in; margin-bottom: 0.08in; background: transparent; page-break-after: avoid }
+		h4.western { font-family: "Liberation Sans", sans-serif; font-size: 13pt; font-style: italic; font-weight: bold }
+		h4.cjk { font-family: "Microsoft YaHei"; font-size: 13pt; font-style: italic; font-weight: bold }
+		h4.ctl { font-family: "Arial"; font-size: 13pt; font-style: italic; font-weight: bold }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr">
+<dl><dt><font face="Eurostile LT Std Condensed, sans-serif">Loose
+	concepts:</font></dt><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* Ignore
+	obstacles unless they are about to be interacted with.</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* if an obstacle
+	will be interacted with modify behavior based on swerving logic.</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* two states,
+	engage and flee.</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* in flee state
+	focus on escaping via either hyperspace or board edge with a
+	secondary priority of reducing damage taken.</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* in engage
+	state focus on destroying enemy ships with a priority on dealing
+	damage when above half points and a priority on reducing damage
+	while still getting a shot when below half points.<br/>
+* when a
+	ship reaches a quarter health remaining they will swap states from
+	engage to flee if able.</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* a ship behaves
+	differently depending on if it is moving before or after it&rsquo;s
+	target.</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* there are 5
+	range bands the AI cares about: 0-1, 2, 3, 4-6, &gt;6</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* the AI cares
+	about target&rsquo;s facing only if the target has not yet moved.</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* the AI&rsquo;s
+	movement behavior cares which arc its target is in (all official
+	arcs are checked plus rear bullseye).</font></dd><dd>
+	<font face="Eurostile LT Std Condensed, sans-serif">* the AI is
+	always First Player (moves and shoots first when initiative is the
+	same).</font></dd><dd style="margin-left: 0in">
+	<br/>
+
+	</dd></dl>
+<h4 class="western">
+<font face="BankGothic Md BT, sans-serif">Sequence of Activation
+Procedures</font></h4>
+<p>	<font face="Eurostile LT Std Condensed, sans-serif"><b>Select
+Target</b></font></p>
+<p><font face="Eurostile LT Std Condensed, sans-serif"><b>	Choose
+Maneuver</b></font></p>
+<p><font face="Eurostile LT Std Condensed, sans-serif"><b>	Check for
+Swerve</b></font></p>
+<p><font face="Eurostile LT Std Condensed, sans-serif"><b>	Preform
+Maneuver</b></font></p>
+<p><font face="Eurostile LT Std Condensed, sans-serif"><b>	Preform
+Action</b></font></p>
+<p><br/>
+<br/>
+
+</p>
+<h4 class="western" style="font-style: normal"><font face="BankGothic Md BT, sans-serif">ALGORITHM:<i>
+Select Target</i></font></h4>
+<p style="line-height: 100%"><font face="Eurostile LT Std Condensed, sans-serif"><i>	</i><span style="font-style: normal">If
+( State = Engage ){</span></font></p>
+<p style="line-height: 100%"><font face="Eurostile LT Std Condensed, sans-serif"><i>	</i><span style="font-style: normal">If
+( Locking &amp; LockedShip.range &lt;= 3 ){</span></font></p>
+<p style="font-style: normal; line-height: 100%"><font face="Eurostile LT Std Condensed, sans-serif">		Target
+= LockedShip</font></p>
+<p style="font-style: normal; line-height: 100%"><font face="Eurostile LT Std Condensed, sans-serif">	}else</font></p>
+<p style="font-style: normal; line-height: 100%"><font face="Eurostile LT Std Condensed, sans-serif">	}</font></p>
+</body>
+</html>
