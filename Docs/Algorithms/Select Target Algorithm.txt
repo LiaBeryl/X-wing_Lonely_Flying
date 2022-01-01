@@ -1,11 +1,38 @@
 ALGORITHM: Select Target
-	If ( State = Engage ){
-		If ( Locking & LockedShip.range <= 3 ){
+	if State = Engage){
+		if(Locking & LockedShip.range <= 3){
 			Target = LockedShip
+			Return
 		}else{
-		
+			#first line of this sequence to not return FALSE has its result set to REGISTER1#{
+				CheckArcRange(Front, 1)
+				CheckArcRange(Front, 2)
+				CheckArcRange(Front, 3)
+				CheckArcRange(FullFront, 1)
+				CheckArcRange(FullFront, 2)
+				CheckArcRange(FullFront, 3)
+				CheckArcRange(FullRear, 1)
+				CheckArcRange(FullRear, 3)
+				CheckArcRange(FullRear, 3)
+				CheckArcRange(FullFront, >3)
+				CheckArcRange(FullRear, >3)
+			}
+			
+			#if REGISTER1 contains more than one ship#{
+				???
+			}else{
+				Target = #Ship in REGISTER1#
+				Return
+			}
 		}
 	}elseif ( State = Flee ){
-		
+		???
 	}
-	
+
+FUNCTION CheckArcRange(ARC, RANGE){
+	#if there is at least one ship in said ARC at said RANGE#{
+		Return( #list of ships in ARC arc at range RANGE# )
+	}else{
+		Return FALSE
+	}
+}
