@@ -1,0 +1,11 @@
+ALGORITHM: Select Target
+	If ( State = Engage ){
+		If ( Locking & LockedShip.range <= 3 ){
+			Target = LockedShip
+		}else{
+		
+		}
+	}elseif ( State = Flee ){
+		
+	}
+	
